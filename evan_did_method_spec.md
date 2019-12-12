@@ -108,7 +108,25 @@ To deactivate a evan.network DID document the controller or the owner has to del
 
 ## Security Considerations
 
-TBD
+| Status                          | Last update                           |
+|-------------------------------|----------------------------------|---------|
+| Work in progress | 12.12.2019 |
+
+### Key management
+In general, DID document owners and controllers always are SSIs.
+SSIs are controlled by a person via a private key.
+When creating the SSI and the private key, a [mnemonic](https://evannetwork.github.io/docs/first_steps/create-identity.html) is created with which the private key can be restored.
+Losing this private key or exposing it to other parties means losing or giving away control over the identity and thus the DID document.
+However, evan.network allows to give trusted identities control over your identity to enable recovery capabilities in case of a complete loss of both the private key and the mnemonic.
+
+### Authorization
+The DID registry is responsible for both providing lookup mechanisms for existing DID documents, and storing new DID documents registered to the respective DID.
+This registry is implemented via a smart contract that only allows the owner of an identity to store a DID document associated to this identity's DID.
+
+### REST Endpoint
+DIDs can be queried off-chain using the evan.network DID resolver smart agent.
+This smart agent communicates via HTTPS and thus ensures transport layer security.
+
 <!--
 Mandatory to discuss in the spec:
 - eavesdropping
@@ -126,4 +144,15 @@ Mandatory to discuss in the spec:
 
 ## Privacy Considerations
 
-TBD
+| Status                          | Last update                           |
+|-------------------------------|----------------------------------|---------|
+| Work in progress | 12.12.2019 |
+
+### Identifiers
+IDs and, therefore, DIDs are created in a random manner and thus do not allow an attacker to derive any patterns to inherently deduce the identity of the owner.
+However, keep in mind that these identifiers are only pseudonyms and do not guarantee anonymity.
+
+### Custom data
+A DID document can contain custom payload data that the identity owner or controller can write into the document at his own discretion.
+Users need to be aware of the public nature of DID documents.
+Everybody can resolve every (valid) DID and receive the corresponding DID document, including all its custom payload data.
