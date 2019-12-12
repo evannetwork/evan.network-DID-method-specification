@@ -36,19 +36,28 @@ Self-sovereign identities (SSIs) can either be a company, a device, or a user. T
 The following sample shows an SSI's DID document. The SSI provides their own means of authentication by providing a public key.
 ```js
 {
-    '@context': 'https://w3id.org/did/v1',
-    id: 'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33',
-    publicKey: [
-        {
-            id: 'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33#key-1',
-            type: [ 'Secp256k1SignatureVerificationKey2018', 'ERC725ManagementKey' ],
-            publicKeyHex: '0x35e97ef6169c82a0f6f0fe287a103f04103f7ccd83c8583af30ea9914d6e76a0'
-        }
+    "@context": "https://w3id.org/did/v1",
+    "id": "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734",
+    "publicKey": [
+      {
+        "id": "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734#key-1",
+        "type": [
+          "Secp256k1SignatureVerificationKey2018",
+          "ERC725ManagementKey"
+        ],
+        "publicKeyHex": "045adfd502c0bc55f4fcb90eea36368d7e19c5b3045aa6f51dfa3699046e9751251d21bc6bdd06c1ff0014fcbbf9f1d83c714434f2b33d713aaf46760f2d53f10d"
+      }
     ],
-    authentication: [
-         'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33#key-1'
+    "authentication": [
+      "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734#key-1"
     ],
-    service: []
+    "service": [
+      {
+        "id": "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734#randomService",
+        "type": "randomService-770853367",
+        "serviceEndpoint": "https://openid.example.com/770853367"
+      }
+    ]
 }
 ```
 
@@ -60,8 +69,8 @@ The following sample shows an asset identity's DID document. The asset has no `a
 ```js
 {
     '@context': 'https://w3id.org/did/v1',
-    id: 'did:evan:0x071be9398b832d711b2e6278eba372ec968d8073e33a9cac9289c3ed06fc0701',
-    controller: 'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33',
+    id: 'did:evan:testcore:0x071be9398b832d711b2e6278eba372ec968d8073e33a9cac9289c3ed06fc0701',
+    controller: 'did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734',
     authentication: [
         'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33#key-1'
     ],
@@ -79,6 +88,7 @@ If you want to retrieve a DID document for an evan.network DID outside the evan.
 ```
 https://testcore.evan.network/did/{did}
 ```
+You can find a working sample [here](https://testcore.evan.network/did/did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734)
 We also provide a very lean [node package](https://github.com/evannetwork/did-resolver) to consume the REST service.
 
 ### Update
