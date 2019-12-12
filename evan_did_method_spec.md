@@ -109,7 +109,7 @@ To deactivate a evan.network DID document the controller or the owner has to del
 ## Security Considerations
 
 | Status                          | Last update                           |
-|-------------------------------|----------------------------------|---------|
+|-------------------------------|----------------------------------|
 | Work in progress | 12.12.2019 |
 
 ### Key management
@@ -145,7 +145,7 @@ Mandatory to discuss in the spec:
 ## Privacy Considerations
 
 | Status                          | Last update                           |
-|-------------------------------|----------------------------------|---------|
+|-------------------------------|----------------------------------|
 | Work in progress | 12.12.2019 |
 
 ### Identifiers
