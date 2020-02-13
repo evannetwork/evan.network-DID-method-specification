@@ -114,7 +114,8 @@ You must be either the owner or the controller of the identity to apply modifica
 ```
 
 ### Deactivate / Revoke
-To deactivate a evan.network DID document the controller or the owner has to delete the DID document using the [evan.network API](https://github.com/evannetwork/api-blockchain-core).
+To deactivate an evan.network DID document the controller or the owner has to deactivate the DID document using the [evan.network API](https://api-blockchain-core.readthedocs.io/en/latest/profile/did.html#deactivateDidDocument).  
+DID documents for deactivated DIDs can be recognized by both an empty authentication and a public key array.
 
 ## Security Considerations
 
