@@ -20,7 +20,7 @@ evan-identifier = evan-account / evan-asset
 evan-account = "0x"20*HEXDIG
 evan-asset = "0x"32*HEXDIG
 ```
-evan.network DIDs can point to either the core network or the testcore network. If no network is specified, "core" is assumend.
+evan.network DIDs can point to either the core network or the testcore network. If no network is specified, "core" is assumed.
 
 evan identifiers are lowercased hex-encoded strings. There are two types of identifiers differing in their length and the properties of the entity behind the address in the network. *Account* DIDs have a length of 20 bytes while *asset* DIDs have a length of 32 bytes. The evan identifier is the address that is also used on the evan.network blockchain to reference accounts and assets.
 
@@ -31,30 +31,32 @@ evan identifiers are lowercased hex-encoded strings. There are two types of iden
 An evan.network DID is depending on the type of the identity. There are three types of identities:<br>
 
 **Self-sovereign Identity (SSI)**<br>
-Self-sovereign identities (SSIs) can either be a company, a device, or a user. These identities are created, owned, and managed by a person via an externally owned account/private key and have their own means of authentication and signing and can issue verified credentials. Changes to the DID document itself can only be performed by the owner or another SSI referenced via the `controller` property of the DID document. Upon creation the `controller` property is set to the owner of the identity so that the owner has the full controll over the identity. SSIs fully feature key revocation and key rotation.
+Self-sovereign identities (SSIs) can either be a company, a device, or a user. These identities are created, owned, and managed by a person via an externally owned account/private key and have their own means of authentication and signing and can issue verified credentials. Changes to the DID document itself can only be performed by the owner or another SSI referenced via the `controller` property of the DID document. Upon creation the `controller` property is set to the owner of the identity so that the owner has the full control over the identity. Alongside this, each DID document holds a proof which is generated using the owner's key. SSIs fully feature key revocation and key rotation.
 
 The following sample shows an SSI's DID document. The SSI provides their own means of authentication by providing a public key.
 ```js
 {
-    "@context": "https://w3id.org/did/v1",
-    "id": "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734",
-    "publicKey": [
-      {
-        "id": "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734#key-1",
-        "type": "Secp256k1SignatureVerificationKey2018",
-        "publicKeyHex": "045adfd502c0bc55f4fcb90eea36368d7e19c5b3045aa6f51dfa3699046e9751251d21bc6bdd06c1ff0014fcbbf9f1d83c714434f2b33d713aaf46760f2d53f10d"
-      }
-    ],
-    "authentication": [
-      "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734#key-1"
-    ],
-    "service": [
-      {
-        "id": "did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734#randomService",
-        "type": "randomService-770853367",
-        "serviceEndpoint": "https://openid.example.com/770853367"
-      }
-    ]
+  "@context": "https://w3id.org/did/v1",
+  "id": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12",
+  "created": "2020-03-18T15:05:16.266Z",
+  "authentication": [
+    "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12#key-1"
+  ],
+  "proof": {
+    "type": "EcdsaPublicKeySecp256k1",
+    "created": "2020-03-18T15:05:16.294Z",
+    "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE1ODQ1NDM5MTYsImRpZERvY3VtZW50Ijp7IkBjb250ZXh0IjoiaHR0cHM6Ly93M2lkLm9yZy9kaWQvdjEiLCJpZCI6ImRpZDpldmFuOnRlc3Rjb3JlOjB4ODNhZDg1MDI4NGIwNjMwZTIzZTUzNTc0ZTU0OWFhYjNkZjJhZGExMiIsInB1YmxpY0tleSI6W3siaWQiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDgzYWQ4NTAyODRiMDYzMGUyM2U1MzU3NGU1NDlhYWIzZGYyYWRhMTIja2V5LTEiLCJ0eXBlIjoiU2VjcDI1NmsxVmVyaWZpY2F0aW9uS2V5MjAxOCIsImNvbnRyb2xsZXIiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDgzYWQ4NTAyODRiMDYzMGUyM2U1MzU3NGU1NDlhYWIzZGYyYWRhMTIiLCJldGhlcmV1bUFkZHJlc3MiOiIweGJiMmNiNDc2YzVkM2U1MjQwZGNmZDg5OTEyZDNhYjQ2ZmM4YWE5MDgifV0sImF1dGhlbnRpY2F0aW9uIjpbImRpZDpldmFuOnRlc3Rjb3JlOjB4ODNhZDg1MDI4NGIwNjMwZTIzZTUzNTc0ZTU0OWFhYjNkZjJhZGExMiNrZXktMSJdLCJjcmVhdGVkIjoiMjAyMC0wMy0xOFQxNTowNToxNi4yNjZaIiwidXBkYXRlZCI6IjIwMjAtMDMtMThUMTU6MDU6MTYuMjY2WiJ9LCJpc3MiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDgzYWQ4NTAyODRiMDYzMGUyM2U1MzU3NGU1NDlhYWIzZGYyYWRhMTIifQ.UfjYDEYvmp9YhpCrFLlPMGFh7BPmGWvKvV579HeagdjTy0lBfdQxz3M5QRSAtOhFz8VkZdQzjuRlzR7b6x3ChQA",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12#key-1"
+  },
+  "publicKey": [
+    {
+      "id": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12#key-1",
+      "type": "Secp256k1VerificationKey2018",
+      "controller": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12",
+      "ethereumAddress": "0xbb2cb476c5d3e5240dcfd89912d3ab46fc8aa908"
+    }
+  ]
 }
 ```
 
