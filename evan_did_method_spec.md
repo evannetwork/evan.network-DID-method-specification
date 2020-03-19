@@ -35,28 +35,29 @@ Self-sovereign identities (SSIs) can either be a company, a device, or a user. T
 
 The following sample shows an SSI's DID document. The SSI provides their own means of authentication by providing a public key.
 ```js
-{
-  "@context": "https://w3id.org/did/v1",
-  "id": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12",
-  "created": "2020-03-18T15:05:16.266Z",
-  "authentication": [
-    "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12#key-1"
-  ],
-  "proof": {
-    "type": "EcdsaPublicKeySecp256k1",
-    "created": "2020-03-18T15:05:16.294Z",
-    "jws": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE1ODQ1NDM5MTYsImRpZERvY3VtZW50Ijp7IkBjb250ZXh0IjoiaHR0cHM6Ly93M2lkLm9yZy9kaWQvdjEiLCJpZCI6ImRpZDpldmFuOnRlc3Rjb3JlOjB4ODNhZDg1MDI4NGIwNjMwZTIzZTUzNTc0ZTU0OWFhYjNkZjJhZGExMiIsInB1YmxpY0tleSI6W3siaWQiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDgzYWQ4NTAyODRiMDYzMGUyM2U1MzU3NGU1NDlhYWIzZGYyYWRhMTIja2V5LTEiLCJ0eXBlIjoiU2VjcDI1NmsxVmVyaWZpY2F0aW9uS2V5MjAxOCIsImNvbnRyb2xsZXIiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDgzYWQ4NTAyODRiMDYzMGUyM2U1MzU3NGU1NDlhYWIzZGYyYWRhMTIiLCJldGhlcmV1bUFkZHJlc3MiOiIweGJiMmNiNDc2YzVkM2U1MjQwZGNmZDg5OTEyZDNhYjQ2ZmM4YWE5MDgifV0sImF1dGhlbnRpY2F0aW9uIjpbImRpZDpldmFuOnRlc3Rjb3JlOjB4ODNhZDg1MDI4NGIwNjMwZTIzZTUzNTc0ZTU0OWFhYjNkZjJhZGExMiNrZXktMSJdLCJjcmVhdGVkIjoiMjAyMC0wMy0xOFQxNTowNToxNi4yNjZaIiwidXBkYXRlZCI6IjIwMjAtMDMtMThUMTU6MDU6MTYuMjY2WiJ9LCJpc3MiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDgzYWQ4NTAyODRiMDYzMGUyM2U1MzU3NGU1NDlhYWIzZGYyYWRhMTIifQ.UfjYDEYvmp9YhpCrFLlPMGFh7BPmGWvKvV579HeagdjTy0lBfdQxz3M5QRSAtOhFz8VkZdQzjuRlzR7b6x3ChQA",
-    "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12#key-1"
-  },
-  "publicKey": [
-    {
-      "id": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12#key-1",
-      "type": "Secp256k1VerificationKey2018",
-      "controller": "did:evan:testcore:0x83ad850284b0630e23e53574e549aab3df2ada12",
-      "ethereumAddress": "0xbb2cb476c5d3e5240dcfd89912d3ab46fc8aa908"
-    }
-  ]
+{ '@context': 'https://w3id.org/did/v1',
+  id:
+   'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906',
+  publicKey:
+   [ { id:
+        'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906#key-1',
+       type: 'Secp256k1VerificationKey2018',
+       controller:
+        'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906',
+       ethereumAddress: '0xcd5e1dbb5552c2baa1943e6b5f66d22107e9c05c' } ],
+  authentication:
+   [ 'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906#key-1' ],
+  created: '2020-03-19T09:56:33.808Z',
+  updated: '2020-03-19T09:56:33.808Z',
+  proof:
+   { type: 'EcdsaPublicKeySecp256k1',
+     created: '2020-03-19T09:56:33.814Z',
+     proofPurpose: 'assertionMethod',
+     verificationMethod:
+      'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906#key-1',
+     jws:
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NkstUiJ9.eyJpYXQiOjE1ODQ2MTE3OTMsImRpZERvY3VtZW50Ijp7IkBjb250ZXh0IjoiaHR0cHM6Ly93M2lkLm9yZy9kaWQvdjEiLCJpZCI6ImRpZDpldmFuOnRlc3Rjb3JlOjB4MGQ4NzIwNGMzOTU3ZDczYjY4YWUyOGQwYWY5NjFkM2M3MjQwMzkwNiIsInB1YmxpY0tleSI6W3siaWQiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDBkODcyMDRjMzk1N2Q3M2I2OGFlMjhkMGFmOTYxZDNjNzI0MDM5MDYja2V5LTEiLCJ0eXBlIjoiU2VjcDI1NmsxVmVyaWZpY2F0aW9uS2V5MjAxOCIsImNvbnRyb2xsZXIiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDBkODcyMDRjMzk1N2Q3M2I2OGFlMjhkMGFmOTYxZDNjNzI0MDM5MDYiLCJldGhlcmV1bUFkZHJlc3MiOiIweGNkNWUxZGJiNTU1MmMyYmFhMTk0M2U2YjVmNjZkMjIxMDdlOWMwNWMifV0sImF1dGhlbnRpY2F0aW9uIjpbImRpZDpldmFuOnRlc3Rjb3JlOjB4MGQ4NzIwNGMzOTU3ZDczYjY4YWUyOGQwYWY5NjFkM2M3MjQwMzkwNiNrZXktMSJdLCJjcmVhdGVkIjoiMjAyMC0wMy0xOVQwOTo1NjozMy44MDhaIiwidXBkYXRlZCI6IjIwMjAtMDMtMTlUMDk6NTY6MzMuODA4WiJ9LCJpc3MiOiJkaWQ6ZXZhbjp0ZXN0Y29yZToweDBkODcyMDRjMzk1N2Q3M2I2OGFlMjhkMGFmOTYxZDNjNzI0MDM5MDYifQ.0qHQjsnBTUGCuAQ0R-UZiWa1LblH9cz0WirzujWWtHHSIcqavyyc2tHrY79JjKmyDctWuKidhOivoYrRcD_PvAE' 
+   } 
 }
 ```
 
@@ -66,14 +67,13 @@ Asset identities, digital twins, or simply assets, are created and owned by a SS
 The following sample shows an asset identity's DID document. The asset has no `authentication` means and only points to its owner's SSI which is delegated to authenticate in this asset identity's name, as well as apply changes to the DID document (via the `controller` property).
 
 ```js
-{
-    '@context': 'https://w3id.org/did/v1',
-    id: 'did:evan:testcore:0x071be9398b832d711b2e6278eba372ec968d8073e33a9cac9289c3ed06fc0701',
-    controller: 'did:evan:testcore:0x126E901F6F408f5E260d95c62E7c73D9B60fd734',
-    authentication: [
-        'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33#key-1'
-    ],
-    service: []
+{ '@context': 'https://w3id.org/did/v1',
+  id:
+   'did:evan:testcore:0x8dfe627ab531a9b9b23910ca691df53dfb13c1b157777360d53d68172aa30ba9',
+  controller:
+   'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906',
+  authentication:
+   [ 'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906#key-1' ] 
 }
 ```
 
@@ -97,18 +97,25 @@ It is also possible to add and remove service endpoints that are to be associate
 You must be either the owner or the controller of the identity to apply modifications and updates can only be performed by SSIs.
 
 ```javascript
-{
-    '@context': 'https://w3id.org/did/v1',
-    id: 'did:evan:0x071be9398b832d711b2e6278eba372ec968d8073e33a9cac9289c3ed06fc0701',
-    controller: 'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33',
-    authentication: [
-        'did:evan:0xb9A7884DEf4F8E503C50068dCB03d2393cBDFA33#key-1'
-    ],
-    service: [{
-        "id": "did:evan:0x071be9398b832d711b2e6278eba372ec968d8073e33a9cac9289c3ed06fc0701#messaging",
-        "type": "MessagingService",
-        "serviceEndpoint": "https://message.me.example.com/"
-    }]
+{ '@context': 'https://w3id.org/did/v1',
+  id:
+   'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906',
+  publicKey:
+   [ { id:
+        'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906#key-1',
+       type: 'Secp256k1VerificationKey2018',
+       controller:
+        'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906',
+       ethereumAddress: '0xcd5e1dbb5552c2baa1943e6b5f66d22107e9c05c' } ],
+  authentication:
+   [ 'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906#key-1' ],
+  created: '2020-03-19T09:56:33.808Z',
+  updated: '2020-03-19T09:56:34.563Z',
+  service:
+   [ { id:
+        'did:evan:testcore:0x0d87204c3957d73b68ae28d0af961d3c72403906#randomService',
+       type: 'randomService-575000253',
+       serviceEndpoint: 'https://openid.example.com/575000253' } ] 
 }
 ```
 
